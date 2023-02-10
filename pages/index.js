@@ -206,7 +206,7 @@ function validateData() {
         <Social
           src="/email.svg"
           alt="Email"
-          link="mailto:businessmichaelamanso@gmail.com"
+          link="mailto:flowdayng@gmail.com"
         />
       </div>
     </>
