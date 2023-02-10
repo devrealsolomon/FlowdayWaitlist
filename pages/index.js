@@ -204,7 +204,7 @@ export default function Home() {
           link="https://linkedin.com/company/flowdayapp"
         />
         <Social
-          src="/github.svg"
+          src="/facebook.png"
           alt="Facebook"
           link="https://facebook.com/devrealsolomon"
         />
