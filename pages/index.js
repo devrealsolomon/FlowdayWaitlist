@@ -143,6 +143,7 @@ function validateData() {
         <div>
           <p className="font-normal text-l text-relectr-normal-text">
             Enjoy 10% commission when your refferal make a transfer/trade.
+            <br/>
             <br className="hidden md:block" />
             We’ll be launching our website very very soon. Stay tuned!!!
           </p>
