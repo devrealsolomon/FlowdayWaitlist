@@ -129,7 +129,7 @@ export default function Home() {
       {/* Logo on Navigation bar */}
       <div className="text-center pt-8 mb-24">
         <a href="/">
-          <img src="/logo.svg" alt='relectr-logo' className='mx-auto' />
+          <img src="/logo.svg" alt='flowday-logo' className='mx-auto' />
         </a>
       </div>
 
