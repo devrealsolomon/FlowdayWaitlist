@@ -2,7 +2,7 @@ const express = require("express");
 const axios = require("axios");
 const cors = require("cors");
 const dotenv = require("dotenv");
-const welcome = require("./welcome");
+const Welcome = require("./welcome");
 
 dotenv.config();
 
@@ -25,7 +25,7 @@ app.post("/api/send", async (req, res) => {
         to: [{ email: email }],
         from: [process.env.FROM_EMAIL],
         subject: "Welcome to our App!",
-        htmlContent: welcome.template(email),
+        htmlContent: Welcome.template(email),
       },
       { headers: header }
     );
