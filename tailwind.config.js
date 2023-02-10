@@ -6,8 +6,8 @@ module.exports = {
         colors: {
           'relectr-normal-text': '#192434',
           'relectr-grey': '#E8EBEF',
-          'relectr-primary-blue': '#3552D4',
-          'relectr-secondary-blue': '#1676F3',
+          'relectr-primary-blue': '#6913AA',
+          'relectr-secondary-blue': '#6912AA',
           'relectr-red': '#EE1C25',
           'relectr-secondary-red': '#FFECEB'
         }

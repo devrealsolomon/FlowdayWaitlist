@@ -129,7 +129,7 @@ export default function Home() {
       {/* Logo on Navigation bar */}
       <div className="text-center pt-8 mb-24">
         <a href="/">
-          <img src="/logo.svg" alt='flowday-logo' className='mx-auto' />
+          <img src="/logo.png" alt='flowday-logo' className='mx-auto' />
         </a>
       </div>
 
@@ -147,8 +147,6 @@ export default function Home() {
         </div>
         <div>
           <p className="font-normal text-l text-relectr-normal-text">
-            Our mission is to simplify USDT/USDC Transaction for average Users.
-            <br className="hidden md:block" />
             Enjoy 10% commission when you refferal make a transfer/trade.
             <br className="hidden md:block" />
             We’ll be launching our website very very soon. Stay tuned!!!
@@ -193,27 +191,27 @@ export default function Home() {
         <Social
           src="/instagram.svg"
           alt="Instagram"
-          link="https://instagram.com/relectrapp"
+          link="https://instagram.com/flowdayapp"
         />
         <Social
           src="/twitter.svg"
           alt="Twitter"
-          link="https://twitter.com/relectrapp"
+          link="https://twitter.com/flowdayapp"
         />
         <Social
           src="/linkedin.svg"
           alt="LinkedIn"
-          link="https://linkedin.com/company/relectr"
+          link="https://linkedin.com/company/flowdayapp"
         />
         <Social
           src="/github.svg"
-          alt="Github"
-          link="https://github.com/relectr"
+          alt="Facebook"
+          link="https://facebook.com/devrealsolomon"
         />
         <Social
           src="/email.svg"
           alt="Email"
-          link="mailto:contact@relectr.com"
+          link="mailto:businessmichaelamanso@gmail.com"
         />
       </div>
     </>
