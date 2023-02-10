@@ -20,7 +20,7 @@ export default function Home() {
   const [modalType, setModalType] = useState("success");
   
 
-  const [buttonText, setButtonText] = useState('Get My Invitation')
+  const [buttonText, setButtonText] = useState('Get Notified')
 
   function resetField() {
     document.getElementById("email").reset();
@@ -106,7 +106,7 @@ export default function Home() {
           buttonColor="bg-relectr-secondary-blue"
           onClick={() => {
             resetField();
-            setButtonText('Get My Invitation')
+            setButtonText('Get Notified')
             setModalVisibility("hidden");
           }}
         />
@@ -120,7 +120,7 @@ export default function Home() {
           buttonColor="bg-relectr-red"
           onClick={() => {
             resetField();
-            setButtonText('Get My Invitation')
+            setButtonText('Get Notified')
             setModalVisibility("hidden");
           }}
         />
