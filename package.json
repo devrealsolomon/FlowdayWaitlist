@@ -1,7 +1,7 @@
 {
   "name": "flowdaywaitlist",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -10,10 +10,23 @@
   },
   "dependencies": {
     "@next/font": "13.1.6",
+    "axios": "^1.3.2",
+    "dotenv-load": "^2.0.1",
     "eslint": "8.33.0",
     "eslint-config-next": "13.1.6",
     "next": "13.1.6",
+    "next-env": "^1.1.1",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "tailwindcss": "^2.0.3",
+    "validator": "^13.9.0"
+  },
+  "description": "waitlist",
+  "main": "index.js",
+  "author": "Solomon Olatunji <realsolomon07@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.21"
   }
 }
