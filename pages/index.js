@@ -21,12 +21,28 @@ export default function Home() {
   
 
   const [buttonText, setButtonText] = useState('Get Notified')
+
+  function resetField() {
+    document.getElementById("email").reset();
+  }
+
+  function getData(value) {
+    setEmail(value.target.value);
+
+    setBackground("bg-relectr-grey");
+
+    setErrorVisibility("invisible");
+
+    setErrorText("Please fill out this field!");
+  }
+
   function validateData() {
-    setButtonText("Loading...");
+    setButtonText('Loading...')
     if (validator.isEmpty(email, { ignore_whitespace: true })) {
       setBackground("bg-relectr-secondary-red");
       setErrorVisibility("");
       setErrorText("Please fill out this field!");
+
     } else {
       if (validator.isEmail(email)) {
         const header = {
@@ -49,24 +65,24 @@ export default function Home() {
             if (res.status >= 200 && res.status < 300) {
               setModalType("success");
               setModalVisibility("");
-            } else if (res.status === 400) {
+            } else if (res.status == 400){
               setModalType("error");
               setModalVisibility("");
-              console.error("Bad Request:", res.data);
             }
           })
           .catch((err) => {
-            setModalType("error");
-            setModalVisibility("");
-            console.error(err);
+            setModalType("error")
+            setModalVisibility("")
+            console.log(err);
           });
+
       } else {
         setBackground("bg-relectr-secondary-red");
         setErrorText("Please input a valid email address!");
         setErrorVisibility("");
       }
     }
-  }  
+  }
   // Below is the comopnenets
   return (
     <>
