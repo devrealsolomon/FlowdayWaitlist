@@ -1,4 +1,3 @@
-// Necessary packages
 import Button from "../components/Button";
 import Social from "../components/Social";
 import React, { useState } from "react";
