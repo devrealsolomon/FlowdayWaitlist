@@ -6,6 +6,7 @@ import validator from "validator";
 import axios from "axios";
 import Modal from "../components/Modal";
 
+
 export default function Home() {
   const [email, setEmail] = useState("");
 
@@ -37,45 +38,48 @@ export default function Home() {
   }
 
   function validateData() {
-    setButtonText('Loading...')
+    setButtonText('Loading...');
     if (validator.isEmpty(email, { ignore_whitespace: true })) {
       setBackground("bg-relectr-secondary-red");
       setErrorVisibility("");
       setErrorText("Please fill out this field!");
-
     } else {
       if (validator.isEmail(email)) {
-        const header = {
-          "Content-Type": "application/json",
-          "api-key": process.env.NEXT_PUBLIC_SENDINBLUE_API.toString(),
+        const apiKey = process.env.NEXT_PUBLIC_MAILCHIMP_API;
+        const data = {
+          members: [
+            {
+              email_address: email,
+              status: "subscribed"
+            }
+          ]
         };
-  
+        
         axios
           .post(
-            "https://api.sendinblue.com/v3/contacts",
+            `https://us10.api.mailchimp.com/3.0/lists/${process.env.NEXT_PUBLIC_MAILCHIMP_LIST_ID}`,
+            data,
             {
-              email: email,
-              // Add other required information here
-            },
-            {
-              headers: header,
+              auth: {
+                username: "anything",
+                password: apiKey
+              }
             }
           )
           .then((res) => {
             if (res.status >= 200 && res.status < 300) {
               setModalType("success");
               setModalVisibility("");
-            } else if (res.status == 400){
+            } else {
               setModalType("error");
               setModalVisibility("");
             }
           })
           .catch((err) => {
-            setModalType("error")
-            setModalVisibility("")
+            setModalType("error");
+            setModalVisibility("");
             console.log(err);
           });
-
       } else {
         setBackground("bg-relectr-secondary-red");
         setErrorText("Please input a valid email address!");
