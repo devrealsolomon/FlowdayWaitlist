@@ -155,7 +155,7 @@ export default function Home() {
       </div>
 
       {/* Field form stuff */}
-      <div className="mx-auto w-max mb-24">
+      <div className="mx-auto w-max mb-20">
         <div>
           <form id="email">
             <input
