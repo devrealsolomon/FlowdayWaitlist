@@ -36,80 +36,58 @@ export default function Home() {
     setErrorText("Please fill out this field!");
   }
 
-  function validateData() {
-    setButtonText('Loading...')
-    if (validator.isEmpty(email, { ignore_whitespace: true })) {
-      setBackground("bg-relectr-secondary-red");
-      setErrorVisibility("");
-      setErrorText("Please fill out this field!");
+function validateData() {
+  setButtonText('Loading...')
+  if (validator.isEmpty(email, { ignore_whitespace: true })) {
+    setBackground("bg-relectr-secondary-red");
+    setErrorVisibility("");
+    setErrorText("Please fill out this field!");
 
-    } else {
-      if (validator.isEmail(email)) {
+  } else {
+    if (validator.isEmail(email)) {
 
-        const header = {
-          "Content-Type": "application/json",
-          "api-key": process.env.NEXT_PUBLIC_SENDINBLUE_API.toString(),
-        };
-
-        axios
-          .post(
-            "https://api.sendinblue.com/v3/contacts",
-            {
-              email: email,
+      axios
+        .post(
+          "/api/subscribe",
+          {
+            email: email,
+          },
+          {
+            headers: {
+              "Content-Type": "application/json"
             },
-            {
-              headers: {
-                "Content-Type": "application/json",
-                "api-key": process.env.NEXT_PUBLIC_SENDINBLUE_API.toString(),
-              },
-            }
-          )
-          .then((res) => {
-            if (res.status >= 200 && res.status < 300) {
-              // Show success popups
-              setModalType("success");
-              setModalVisibility("");
+          }
+        )
+        .then((res) => {
+          if (res.status >= 200 && res.status < 300) {
+            // Show success popups
+            setModalType("success");
+            setModalVisibility("");
 
-              // Code to send welcome email
-              axios
-                .post("./api/send", { email: email })
-                .then((response) => {
-                  console.log(
-                    "Welcome email sent successfully to",
-                    email
-                  );
-                })
-                .catch((error) => {
-                  console.error(
-                    "Error sending welcome email to",
-                    email,
-                    error
-                  );
-                });
-            } else if (res.status == 400) {
-              // Show failed popoups
-              setModalType("error");
-              setModalVisibility("");
-            }
-          })
-          // Catch and log the error
-          .catch((err) => {
+          } else if (res.status == 400) {
+            // Show failed popoups
             setModalType("error");
             setModalVisibility("");
-            console.log(err);
-          });
+          }
+        })
+        // Catch and log the error
+        .catch((err) => {
+          setModalType("error");
+          setModalVisibility("");
+          console.log(err);
+        });
 
-        // If the input is not aempty but not a valid email address
-      } else {
-        // Change text field's background color to error red
-        setBackground("bg-relectr-secondary-red");
-        // Set the error text to the following
-        setErrorText("Please input a valid email address!");
-        // Show error message (to hide = "invisible")
-        setErrorVisibility("");
-      }
+      // If the input is not aempty but not a valid email address
+    } else {
+      // Change text field's background color to error red
+      setBackground("bg-relectr-secondary-red");
+      // Set the error text to the following
+      setErrorText("Please input a valid email address!");
+      // Show error message (to hide = "invisible")
+      setErrorVisibility("");
     }
   }
+}
   // Below is the comopnenets
   return (
     <>

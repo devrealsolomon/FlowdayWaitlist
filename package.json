@@ -5,8 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "start:api": "node api/server.js"
+    "start": "next start"
   },
   "dependencies": {
     "@next/font": "13.1.6",
