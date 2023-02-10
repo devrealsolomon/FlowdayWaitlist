@@ -71,14 +71,22 @@ export default function Home() {
               setModalVisibility("");
 
               // Code to send welcome email
-          axios.post('./api/send', { email: email })
-          .then(response => {
-            console.log('Welcome email sent successfully to', email);
-          })
-          .catch(error => {
-            console.error('Error sending welcome email to', email, error);
-          });
-            } else if (res.status == 400){
+              axios
+                .post("./api/send", { email: email })
+                .then((response) => {
+                  console.log(
+                    "Welcome email sent successfully to",
+                    email
+                  );
+                })
+                .catch((error) => {
+                  console.error(
+                    "Error sending welcome email to",
+                    email,
+                    error
+                  );
+                });
+            } else if (res.status == 400) {
               // Show failed popoups
               setModalType("error");
               setModalVisibility("");
@@ -86,8 +94,8 @@ export default function Home() {
           })
           // Catch and log the error
           .catch((err) => {
-            setModalType("error")
-            setModalVisibility("")
+            setModalType("error");
+            setModalVisibility("");
             console.log(err);
           });
 
