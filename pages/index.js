@@ -183,10 +183,10 @@ function validateData() {
 
       {/* Footer stuff */}
       <div className="text-center pb-12">
-      <br className="hidden md:block" />
-      <p>
+      <p className="font-normal text-l text-relectr-normal-text">
       Follow Us On Our Social Media To Stay Updated!
       </p>
+      <br className="hidden md:block" />
         <Social
           src="/instagram.svg"
           alt="Instagram"
