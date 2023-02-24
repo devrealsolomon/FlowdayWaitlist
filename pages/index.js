@@ -1,10 +1,10 @@
 import Button from "../components/Button";
 import Social from "../components/Social";
 import React, { useState } from "react";
-
 import validator from "validator";
 import axios from "axios";
 import Modal from "../components/Modal";
+import { sendContactForm } from "../lib/api";
 
 
 export default function Home() {
