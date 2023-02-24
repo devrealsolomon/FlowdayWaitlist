@@ -38,42 +38,20 @@ export default function Home() {
   }
 
   function validateData() {
-    setButtonText('Loading...');
+    setButtonText("Loading...");
     if (validator.isEmpty(email, { ignore_whitespace: true })) {
       setBackground("bg-relectr-secondary-red");
       setErrorVisibility("");
       setErrorText("Please fill out this field!");
     } else {
       if (validator.isEmail(email)) {
-        const apiKey = process.env.NEXT_PUBLIC_MAILCHIMP_API;
         const data = {
-          members: [
-            {
-              email_address: email,
-              status: "subscribed"
-            }
-          ]
+          email: email,
         };
-        
-        axios
-          .post(
-            `https://us10.api.mailchimp.com/3.0/lists/${process.env.NEXT_PUBLIC_MAILCHIMP_LIST_ID}`,
-            data,
-            {
-              auth: {
-                username: "anything",
-                password: apiKey
-              }
-            }
-          )
+        sendContactForm(data)
           .then((res) => {
-            if (res.status >= 200 && res.status < 300) {
-              setModalType("success");
-              setModalVisibility("");
-            } else {
-              setModalType("error");
-              setModalVisibility("");
-            }
+            setModalType("success");
+            setModalVisibility("");
           })
           .catch((err) => {
             setModalType("error");
@@ -86,7 +64,7 @@ export default function Home() {
         setErrorVisibility("");
       }
     }
-  }
+  }  
   // Below is the comopnenets
   return (
     <>
